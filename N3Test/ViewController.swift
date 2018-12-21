@@ -34,7 +34,13 @@ class ViewController: UIViewController {
         context!.setObject(nativePrint, forKeyedSubscript: "nativePrint" as NSString)
     }
     
-    
+    /*
+     Evaluate the script in n3bundle.
+     Create new Parser object in the javascript context.
+     Pass the code to be parsed to the Parser parse function, storing the result in 'result' variable.
+     Access the 'result' variable which contains quads.
+     Extract subject, predicate and object values from each quad.
+     */
     func n3Test() {
         
         guard let n3Path = Bundle.main.path(forResource: "n3bundle", ofType: "js")
@@ -43,9 +49,10 @@ class ViewController: UIViewController {
         do {
             let jsCode = try String(contentsOfFile: n3Path, encoding: String.Encoding.utf8)
             _ = context?.evaluateScript(jsCode)
-            
             context?.evaluateScript("var prsr = new N3.Parser();")
-            context?.evaluateScript("var result = prsr.parse('PREFIX c: <http://example.org/cartoons#> c:Tom a c:Cat. c:Jerry a c:Mouse; c:smarterThan c:Tom.')")
+            let codeToParse = "PREFIX c: <http://example.org/cartoons#> c:Tom a c:Cat. c:Jerry a c:Mouse; c:smarterThan c:Tom."
+            let jsScript = "var result = prsr.parse('" + codeToParse + "')"
+            context?.evaluateScript(jsScript)
             let quads = context?.objectForKeyedSubscript("result")?.toArray()
             for quad in quads! {
                 var quadDict = quad as! [String : Any]
