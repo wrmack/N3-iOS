@@ -49,12 +49,15 @@ class ViewController: UIViewController {
             let quads = context?.objectForKeyedSubscript("result")?.toArray()
             for quad in quads! {
                 var quadDict = quad as! [String : Any]
+                
                 var quadSubject = quadDict["subject"] as! [String : Any]
                 let quadSubjectValue = quadSubject["id"]
                 print("\nSubject: \(quadSubjectValue!)")
+                
                 var quadPredicate = quadDict["predicate"] as! [String : Any]
                 let quadPredicateValue = quadPredicate["id"]
                 print("Predicate: \(quadPredicateValue!)")
+                
                 var quadObject = quadDict["object"] as! [String : Any]
                 let quadObjectValue = quadObject["id"]
                 print("Object: \(quadObjectValue!)")
