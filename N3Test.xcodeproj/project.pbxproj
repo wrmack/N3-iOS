@@ -56,7 +56,7 @@
 		41B5285121CD6648003B8FC8 /* N3Test */ = {
 			isa = PBXGroup;
 			children = (
-				41CFC2DC21D15AA100FD8CBE /* min */,
+				41CFC2DC21D15AA100FD8CBE /* vendor */,
 				41B5285221CD6648003B8FC8 /* AppDelegate.swift */,
 				41B5285421CD6648003B8FC8 /* ViewController.swift */,
 				41B5285621CD6648003B8FC8 /* Main.storyboard */,
@@ -67,12 +67,12 @@
 			path = N3Test;
 			sourceTree = "<group>";
 		};
-		41CFC2DC21D15AA100FD8CBE /* min */ = {
+		41CFC2DC21D15AA100FD8CBE /* vendor */ = {
 			isa = PBXGroup;
 			children = (
 				41B5286421CD66FF003B8FC8 /* n3bundle.js */,
 			);
-			path = min;
+			path = vendor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
